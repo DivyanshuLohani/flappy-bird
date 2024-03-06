@@ -15,11 +15,15 @@ Bird::~Bird()
 
 void Bird::Draw()
 {
+    Vector2 halfTexture = {(float)m_texture.width / 2, (float)m_texture.height / 2};
     DrawTexturePro(
         m_texture,
         {0, 0, (float)m_texture.width, (float)m_texture.height},
-        getRect(),
-        {0, 0},
+        {m_position.x + halfTexture.x,
+         m_position.y + halfTexture.y,
+         (float)m_texture.width,
+         (float)m_texture.height},
+        halfTexture,
         m_rotation,
         WHITE);
 }
